@@ -14,8 +14,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.Transient;
 
 @Entity
-@DiscriminatorValue("teacher")
-
+@DiscriminatorValue("formateur")
 public class Formateur extends Personne {
 	@Column(name = "referent")
 	private boolean referent;

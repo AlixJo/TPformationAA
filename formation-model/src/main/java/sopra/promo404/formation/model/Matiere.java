@@ -5,6 +5,8 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
@@ -25,6 +27,7 @@ public class Matiere {
 	private int duree;
 	
 	@Column(name = "difficulty")
+	@Enumerated(EnumType.STRING)
 	private Difficulte difficulte;
 
 	@ManyToMany(mappedBy = "matieres")

@@ -31,7 +31,7 @@ public class TestDAOPersonneJPA {
 
 		Personne s4 = daoPersonne.findById(10L);
 
-		daoPersonne.delete(jeanBon);
+//		daoPersonne.delete(jeanBon);
 
 	}
 
