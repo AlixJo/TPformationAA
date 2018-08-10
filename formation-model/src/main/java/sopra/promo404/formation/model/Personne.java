@@ -1,10 +1,26 @@
 package sopra.promo404.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.InheritanceType;
+
+@Entity
+@Table(name="person")
+@Inheritance(strategy=InheritanceType.JOINED)
 public abstract class Personne {
+	@Id
+	@Column(name="person_id")
 	private Long id;
+	@Column(name="last_name")
 	private String nom;
+	@Column(name="first_name")
 	private String prenom;
-	private Adresse adresse;
+//	@OneToOne
+//	private Adresse adresse;
 
 	public Personne() {
 		super();
@@ -40,12 +56,12 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
-	public Adresse getAdresse() {
-		return adresse;
-	}
-
-	public void setAdresse(Adresse adresse) {
-		this.adresse = adresse;
-	}
+//	public Adresse getAdresse() {
+//		return adresse;
+//	}
+//
+//	public void setAdresse(Adresse adresse) {
+//		this.adresse = adresse;
+//	}
 
 }

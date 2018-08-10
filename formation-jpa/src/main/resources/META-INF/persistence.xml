@@ -11,6 +11,10 @@
 		<class>sopra.promo404.formation.model.Formateur</class> 
 		<class>sopra.promo404.formation.model.Formation</class>
 		<class>sopra.promo404.formation.model.FormationId</class>
+		<class>sopra.promo404.formation.model.Eleve</class>
+		<class>sopra.promo404.formation.model.Ordinateur</class> 
+		<class>sopra.promo404.formation.model.Personne</class>
+		<class>sopra.promo404.formation.model.Adresse</class>
 
 		<properties>
 			<property name="hibernate.connection.url"

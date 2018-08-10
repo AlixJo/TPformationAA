@@ -1,6 +1,8 @@
 package sopra.promo404.formation.model;
 
-public class Adresse {
+import javax.persistence.Entity;
+
+	public class Adresse {
 	private String rue;
 	private String codePostal;
 	private String ville;
