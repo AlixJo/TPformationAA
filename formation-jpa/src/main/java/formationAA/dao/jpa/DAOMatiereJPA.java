@@ -3,11 +3,11 @@ package formationAA.dao.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
-import eshop.dao.Eshop;
-import eshop.dao.jpa.EntityManager;
-import eshop.dao.jpa.EntityTransaction;
-import eshop.dao.jpa.Produit;
-import eshop.dao.jpa.Query;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import javax.persistence.Query;
+
+import formationAA.dao.FormationPersist;
 import formationAA.dao.IDaoMatiere;
 import sopra.promo404.formation.model.Matiere;
 
@@ -21,11 +21,11 @@ public class DAOMatiereJPA implements IDaoMatiere {
 		EntityTransaction tx = null;
 
 		try {
-			em = Eshop.getInstance().getEmf().createEntityManager();
+			em = FormationPersist.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
-			Query query = em.createQuery("from Produit", Produit.class);
+			Query query = em.createQuery("from Matiere", Matiere.class);
 			liste = query.getResultList();
 
 			tx.commit();
@@ -45,26 +45,111 @@ public class DAOMatiereJPA implements IDaoMatiere {
 
 	@Override
 	public Matiere findById(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Matiere entity = null;
+
+		EntityManager em = null;
+		EntityTransaction tx = null;
+
+		try {
+			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+
+			entity = em.find(Matiere.class, id);
+
+			tx.commit();
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+		return entity;
 	}
 
 	@Override
 	public Matiere save(Matiere entity) {
-		// TODO Auto-generated method stub
-		return null;
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		
+		try {
+			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			
+			if(entity.getId() == null) {
+				em.persist(entity);
+			} else {
+				entity = em.merge(entity);
+			}
+			
+			tx.commit(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
+		
+		return entity;
 	}
 
 	@Override
 	public void delete(Matiere entity) {
-		// TODO Auto-generated method stub
-
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		
+		try {
+			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			
+			em.remove(em.merge(entity));
+			
+			tx.commit(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
-
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		
+		try {
+			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			
+			em.remove(em.find(Matiere.class, id));
+			
+			tx.commit(); 
+		} catch (Exception e) {
+			e.printStackTrace();
+			if (tx != null) {
+				tx.rollback();
+			}
+		} finally {
+			if (em != null) {
+				em.close();
+			}
+		}
 	}
 
 }
