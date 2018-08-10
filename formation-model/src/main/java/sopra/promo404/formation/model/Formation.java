@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 @Entity
 @Table(name = "formation")
@@ -19,7 +19,7 @@ public class Formation {
 	private FormationId id;
 	@Column (name="duration")
 	private int duree;
-	@Transient
+	@JoinColumn(name="teacher_id")
 	private List<Matiere> matieres = new ArrayList<>();
 
 	public Formation() {

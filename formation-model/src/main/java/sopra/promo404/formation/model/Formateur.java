@@ -15,6 +15,8 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "teacher")
+@PrimaryKeyJoinColumn(name="teacher_id", referencedColumnName="person_id")
+
 public class Formateur extends Personne {
 	@Column(name = "referent")
 	private boolean referent;
@@ -24,6 +26,7 @@ public class Formateur extends Personne {
 	@JoinColumn(name="teacher_id")
 	private List<Eleve> eleves = new ArrayList<>();
 	@ManyToMany
+	@JoinColumn(name="teacher_id")
 	private Set<Matiere> matieres = new HashSet<>();
 
 	public Formateur() {

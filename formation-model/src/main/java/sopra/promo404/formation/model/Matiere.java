@@ -23,7 +23,8 @@ public class Matiere {
 	private int duree;
 	@Transient
 	private Difficulte difficulte;
-	@ManyToMany
+	
+	@ManyToMany(mappedBy="subject_id")
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {
