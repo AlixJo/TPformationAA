@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import formationAA.dao.FormationPersist;
+import formationAA.Application;
 import formationAA.dao.IDaoOrdinateur;
 import sopra.promo404.formation.model.Ordinateur;
 
@@ -21,7 +21,7 @@ public class DAOOrdinateurJPA implements IDaoOrdinateur{
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -51,7 +51,7 @@ public class DAOOrdinateurJPA implements IDaoOrdinateur{
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -77,7 +77,7 @@ public class DAOOrdinateurJPA implements IDaoOrdinateur{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -108,7 +108,7 @@ public class DAOOrdinateurJPA implements IDaoOrdinateur{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -133,7 +133,7 @@ public class DAOOrdinateurJPA implements IDaoOrdinateur{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			

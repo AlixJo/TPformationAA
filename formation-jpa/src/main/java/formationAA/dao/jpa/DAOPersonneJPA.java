@@ -3,13 +3,13 @@ package formationAA.dao.jpa;
 import java.util.ArrayList;
 import java.util.List;
 
-
-import formationAA.dao.FormationPersist;
-import formationAA.dao.IDaoPersonne;
-import sopra.promo404.formation.model.Personne;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
+
+import formationAA.Application;
+import formationAA.dao.IDaoPersonne;
+import sopra.promo404.formation.model.Personne;
 
 public class DAOPersonneJPA implements IDaoPersonne {
 
@@ -22,7 +22,7 @@ public class DAOPersonneJPA implements IDaoPersonne {
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -52,7 +52,7 @@ public class DAOPersonneJPA implements IDaoPersonne {
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -79,7 +79,7 @@ public class DAOPersonneJPA implements IDaoPersonne {
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -110,7 +110,7 @@ public class DAOPersonneJPA implements IDaoPersonne {
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -135,7 +135,7 @@ public class DAOPersonneJPA implements IDaoPersonne {
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			

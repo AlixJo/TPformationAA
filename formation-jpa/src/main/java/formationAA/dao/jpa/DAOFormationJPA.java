@@ -7,7 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Query;
 
-import formationAA.dao.FormationPersist;
+import formationAA.Application;
 import formationAA.dao.IDaoFormation;
 import sopra.promo404.formation.model.Formation;
 import sopra.promo404.formation.model.FormationId;
@@ -22,7 +22,7 @@ public class DAOFormationJPA implements IDaoFormation{
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -52,7 +52,7 @@ public class DAOFormationJPA implements IDaoFormation{
 		EntityTransaction tx = null;
 
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 
@@ -78,7 +78,7 @@ public class DAOFormationJPA implements IDaoFormation{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -109,7 +109,7 @@ public class DAOFormationJPA implements IDaoFormation{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			
@@ -135,7 +135,7 @@ public class DAOFormationJPA implements IDaoFormation{
 		EntityTransaction tx = null;
 		
 		try {
-			em = FormationPersist.getInstance().getEmf().createEntityManager();
+			em = Application.getInstance().getEmf().createEntityManager();
 			tx = em.getTransaction();
 			tx.begin();
 			

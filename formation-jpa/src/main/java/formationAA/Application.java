@@ -1,20 +1,20 @@
-package formationAA.dao;
+package formationAA;
 
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-public class FormationPersist {
-	private static FormationPersist instance = null;
+public class Application {
+	private static Application instance = null;
 
 	private final EntityManagerFactory emf = Persistence.createEntityManagerFactory("formationpersist");
 
-	private FormationPersist() {
+	private Application() {
 
 	}
 
-	public static FormationPersist getInstance() {
+	public static Application getInstance() {
 		if (instance == null) {
-			instance = new FormationPersist();
+			instance = new Application();
 		}
 
 		return instance;
