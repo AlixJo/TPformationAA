@@ -1,9 +1,26 @@
 package sopra.promo404.formation.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="computer")
 public class Ordinateur {
+	@Id
+	@GeneratedValue
+	@Column(name="code")
 	private String code;
+	@Column(name="ram")
 	private int ram;
+	@Column(name="ssd")
 	private boolean ssd;
+	@OneToOne
+	@JoinColumn(name="student_id")
 	private Eleve eleve;
 
 	public Ordinateur() {

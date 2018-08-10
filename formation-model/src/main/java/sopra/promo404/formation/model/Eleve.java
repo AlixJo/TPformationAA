@@ -2,10 +2,24 @@ package sopra.promo404.formation.model;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="student")
 public class Eleve extends Personne {
+	@Column(name="civility")
 	private Civilite civilite;
+	@Temporal(TemporalType.DATE)
 	private Date dtNaissance;
+	@ManyToOne
 	private Formateur formateur;
+	@OneToOne(mappedBy = "student")
 	private Ordinateur ordinateur;
 
 	public Eleve() {
