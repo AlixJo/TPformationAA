@@ -5,10 +5,18 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import javax.persistence.Column;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+@Table(name = "teacher")
 public class Formateur extends Personne {
+	@Column(name = "referent")
 	private boolean referent;
+	@Column(name = "experience")
 	private int experience;
+	@Transient
 	private List<Eleve> eleves = new ArrayList<>();
+	@Transient
 	private Set<Matiere> matieres = new HashSet<>();
 
 	public Formateur() {
