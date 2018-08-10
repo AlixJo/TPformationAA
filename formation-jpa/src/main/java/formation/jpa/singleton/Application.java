@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class Application {
 	private static Application instance = null;
 	
-	private String jdbcUrl = "jdbc:postgresql://localhost:5432/formation";
+	private String jdbcUrl = "jdbc:postgresql://localhost:5432/TPformationAA";
 	private String jdbcUser = "postgres";
 	private String jdbcPassword = "admin";
 	
