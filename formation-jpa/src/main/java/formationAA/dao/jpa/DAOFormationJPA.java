@@ -10,7 +10,7 @@ import javax.persistence.Query;
 import formationAA.dao.FormationPersist;
 import formationAA.dao.IDaoFormation;
 import sopra.promo404.formation.model.Formation;
-import sopra.promo404.formation.model.Matiere;
+import sopra.promo404.formation.model.FormationId;
 
 public class DAOFormationJPA implements IDaoFormation{
 
@@ -26,7 +26,7 @@ public class DAOFormationJPA implements IDaoFormation{
 			tx = em.getTransaction();
 			tx.begin();
 
-			Query query = em.createQuery("from Matiere", Formation.class);
+			Query query = em.createQuery("from Formation", Formation.class);
 			liste = query.getResultList();
 
 			tx.commit();
@@ -45,7 +45,7 @@ public class DAOFormationJPA implements IDaoFormation{
 	}
 
 	@Override
-	public Formation findById(Long id) {
+	public Formation findById(FormationId id) {
 		Formation entity = null;
 
 		EntityManager em = null;
@@ -130,7 +130,7 @@ public class DAOFormationJPA implements IDaoFormation{
 	}
 
 	@Override
-	public void deleteById(Long id) {
+	public void deleteById(FormationId id) {
 		EntityManager em = null;
 		EntityTransaction tx = null;
 		
