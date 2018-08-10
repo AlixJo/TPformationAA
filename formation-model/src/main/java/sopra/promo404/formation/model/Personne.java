@@ -1,6 +1,8 @@
 package sopra.promo404.formation.model;
 
 import javax.persistence.Column;
+import javax.persistence.Embedded;
+import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -21,8 +23,8 @@ public abstract class Personne {
 	private String nom;
 	@Column(name="first_name")
 	private String prenom;
-//	@OneToOne
-//	private Adresse adresse;
+	@Embedded
+	private Adresse adresse;
 
 	public Personne() {
 		super();

@@ -28,7 +28,7 @@ public class Matiere {
 	@Column(name = "difficulty")
 	private Difficulte difficulte;
 
-	@ManyToMany(mappedBy = "teacher_id")
+	@ManyToMany(mappedBy = "matieres")
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {
