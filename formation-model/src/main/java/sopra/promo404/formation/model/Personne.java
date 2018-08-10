@@ -36,6 +36,16 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
+	
+	
+	public Personne(Long id, String nom, String prenom, Adresse adresse) {
+		super();
+		this.id = id;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -60,12 +70,12 @@ public abstract class Personne {
 		this.prenom = prenom;
 	}
 
-//	public Adresse getAdresse() {
-//		return adresse;
-//	}
-//
-//	public void setAdresse(Adresse adresse) {
-//		this.adresse = adresse;
-//	}
+	public Adresse getAdresse() {
+		return adresse;
+	}
+
+	public void setAdresse(Adresse adresse) {
+		this.adresse = adresse;
+	}
 
 }
