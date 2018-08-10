@@ -6,16 +6,15 @@ import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
-@Table(name = "teacher")
-@PrimaryKeyJoinColumn(name="teacher_id", referencedColumnName="person_id")
+@DiscriminatorValue("teacher")
 
 public class Formateur extends Personne {
 	@Column(name = "referent")
@@ -25,6 +24,7 @@ public class Formateur extends Personne {
 	@OneToMany
 	@JoinColumn(name="teacher_id")
 	private List<Eleve> eleves = new ArrayList<>();
+	@Transient
 	@ManyToMany
 	@JoinColumn(name="teacher_id")
 	private Set<Matiere> matieres = new HashSet<>();

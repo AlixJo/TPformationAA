@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-@Entity
+//@Entity
 @Table(name = "subject")
 public class Matiere {
 	@Id

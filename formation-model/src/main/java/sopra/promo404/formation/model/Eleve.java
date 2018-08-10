@@ -1,21 +1,20 @@
 package sopra.promo404.formation.model;
 
-import java.beans.Transient;
 import java.util.Date;
 
 import javax.persistence.Column;
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
-import javax.persistence.PrimaryKeyJoinColumn;
-import javax.persistence.Table;
+
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@PrimaryKeyJoinColumn(name="student_id", referencedColumnName="person_id")
-@Table(name="student")
+@DiscriminatorValue("student")
+
 public class Eleve extends Personne {
 	@Column(name="civility")
 	private Civilite civilite;
@@ -24,7 +23,7 @@ public class Eleve extends Personne {
 	@ManyToOne
 	@JoinColumn(name="teacher_id")
 	private Formateur formateur;
-	@OneToOne(mappedBy = "student_id")
+	@OneToOne(mappedBy ="eleve")
 	private Ordinateur ordinateur;
 
 	public Eleve() {
@@ -36,6 +35,8 @@ public class Eleve extends Personne {
 		this.civilite = civilite;
 		this.dtNaissance = dtNaissance;
 	}
+
+	
 
 	public Civilite getCivilite() {
 		return civilite;

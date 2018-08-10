@@ -2,6 +2,8 @@ package sopra.promo404.formation.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.Table;
@@ -9,9 +11,10 @@ import javax.persistence.InheritanceType;
 
 @Entity
 @Table(name="person")
-@Inheritance(strategy=InheritanceType.JOINED)
+@Inheritance(strategy=InheritanceType.SINGLE_TABLE)
 public abstract class Personne {
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="person_id")
 	private Long id;
 	@Column(name="last_name")
