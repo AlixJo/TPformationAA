@@ -10,30 +10,33 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 import javax.persistence.Transient;
-//@Entity
+
+@Entity
 @Table(name = "subject")
 public class Matiere {
 	@Id
 	@GeneratedValue
 	@Column(name = "id")
 	private Long id;
+	
 	@Column(name = "name")
 	private String nom;
+	
 	@Column(name = "duration")
 	private int duree;
-	@Transient
-	private Difficulte difficulte;
 	
-	@ManyToMany(mappedBy="subject_id")
+	@Column(name = "difficulty")
+	private Difficulte difficulte;
+
+	@ManyToMany(mappedBy = "teacher_id")
 	private List<Formateur> formateurs = new ArrayList<>();
 
 	public Matiere() {
 		super();
 	}
 
-	public Matiere(Long id, String nom, int duree, Difficulte difficulte) {
+	public Matiere(String nom, int duree, Difficulte difficulte) {
 		super();
-		this.id = id;
 		this.nom = nom;
 		this.duree = duree;
 		this.difficulte = difficulte;
