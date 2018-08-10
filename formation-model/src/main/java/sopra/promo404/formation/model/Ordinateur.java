@@ -9,18 +9,18 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="computer")
+@Table(name = "computer")
 public class Ordinateur {
 	@Id
 	@GeneratedValue
-	@Column(name="code")
+	@Column(name = "code")
 	private String code;
-	@Column(name="ram")
+	@Column(name = "ram")
 	private int ram;
-	@Column(name="ssd")
+	@Column(name = "ssd")
 	private boolean ssd;
 	@OneToOne
-	@JoinColumn(name="student_id")
+	@JoinColumn(name = "student_id")
 	private Eleve eleve;
 
 	public Ordinateur() {
@@ -57,6 +57,8 @@ public class Ordinateur {
 	public void setSsd(boolean ssd) {
 		this.ssd = ssd;
 	}
+
+	
 
 	public Eleve getEleve() {
 		return eleve;
